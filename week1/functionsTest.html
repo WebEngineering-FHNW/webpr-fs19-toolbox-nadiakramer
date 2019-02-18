@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+        function fun1()    { return 1; }
+
+        document.writeln( fun1()   === 1 ); //scientific method: hypothese, validation
+        document.writeln( fun1(42) === 1 ); //best effort, unnötige Parameterübergabe
+
+        function fun2()    { return 1; }
+        function fun2(arg) { return arg; }
+
+        document.writeln( fun2() !== 1  ); //fun2 wird überschrieben
+        document.writeln( fun2() === undefined ); //undefined, keine Parameterübergabe
+        document.writeln( fun2(42) === 42 ); //Parameter 42 wird übergeben
+
+        function noReturn()      { 1; } //return fehlt, gibt kein Typmarkierer in js
+        const noReturn2  = () => { 1; }; //return Fehlt, darum !== 1
+        const noReturn2a = () => { return 1; }; //geschw. Klammer braucht immer return
+        const noReturn3  = () => 1; //ohne geschw. Klammer ist die Zuweisung möglich
+
+        document.writeln( noReturn()   !== 1 );
+        document.writeln( noReturn2()  !== 1 );
+        document.writeln( noReturn2a() === 1 );
+        document.writeln( noReturn3()  === 1 );
+
+        const myfun = fun1; //Referenz auf Methode, mit Klammern wäre es einen Aufruf
+        const funs  = [null, undefined, fun1, fun2]; //Array
+
+        document.writeln( myfun()   === 1 );
+        document.writeln( funs[2]() === 1 ); //fun1 wird aufgerufen
+
+        function doit(waszutunist) {
+            return function bla(arg) { return waszutunist(arg) } //"bla" nicht nötig
+        }
+
+        document.writeln( doit(fun1)(10) === 1 ); //bei fun1 ist return 1
+        document.writeln( doit(fun2)(10) === 10 ); // bei fun2 wird arg zurückgegeben
+
+        const doit2 = callme => arg => callme(arg); //andere Art von Methode
+
+        document.writeln( doit2(fun1)(10) === 1 ); //gleicher Test
+
+        const doFun2 = doit2(fun1);
+
+        document.writeln( doFun2(10) === 1 );
+        document.writeln( doFun2()   === 1 );
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
