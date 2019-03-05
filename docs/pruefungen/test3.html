@@ -259,13 +259,20 @@
         */
 
         //document.writeln("Q9b 4P:");
-        /*Q9c tbd
+
         const Left = x => f => g => f(x);
         const Right = x => f => g=> g(x);
-        const either = id;
+        const either = I;
+        const x_ = Math.random();
+        const safeDiv = num => divisor =>
+            divisor === 0
+                ? Left ("Cannot divide by 0")
+                : Right (num/divisor);
 
+        const eShow = x => x(x => x)(x => "Result is: " + x)
 
-        */
+        document.writeln( eShow( safeDiv(1)(0)) === "Cannot divide by 0")
+        document.writeln( eShow( safeDiv(x_)(1)) === "Result is: " + x_)
 
 
     </script>
