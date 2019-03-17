@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 4</title>
+</head>
+<body>
+<script>
+    document.writeln("Test 4");
+    const I = x =>      x;
+    const K = x => y => x;
+    const KI = K(I);
+    const T = K;
+    const F = KI;
+    const and = p => q => p(q)(p);
+
+    document.writeln("Q9d (4P)");
+    const times = a => b => a*b;
+    const twice = times(2);
+    document.writeln([1, 2, 3].map(twice).toString() ==="2,4,6");
+
+    document.writeln("Q9e (4P)");
+    const divides = x => y => y%x === 0;
+    document.writeln([1,2,3,4,5,6].filter(divides(3)).toString() === "3,6");
+
+    document.writeln("Q9f (4P)");
+    const join = x =>(acc, cur) => acc.toString() + x + cur.toString();
+    document.writeln([1,2,3].reduce(join('-')) === '1-2-3');
+    document.writeln([1,2,3].reduce(join('-')));
+
+
+
+</script>
+</body>
+</html>
