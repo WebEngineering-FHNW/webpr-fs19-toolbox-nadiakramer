@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 8</title>
+</head>
+<body>
+<script>
+    document.write("Q17 (5P):");
+
+    /*
+    function Todo(text){ //Error
+        let done = false;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      done = true
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+     */
+
+    /*
+    function Todo(text, done){ //true
+        function check() {
+            done = true;
+        }
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      check
+        }
+    }
+    let todo = Todo("buy milk", false);
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+
+    /*
+    function Todo(text){ //true
+        let done = false;
+        const check = () => done = true;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:     check
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+    /*
+    function Todo(text){ //false
+        let done = false;
+        const check = () => this.done = true;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      check
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+    /*
+    function Todo(text){ //true
+        let done = false;
+        const check = () => done = true;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      check
+        }
+    }
+    let todo = new Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+    /*
+    function Todo(text, done){ //true
+        const check = () => done = true;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      check
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+
+    /*
+    function Todo(text){ //Error
+        let done = false;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      () => done = true
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+    /*
+    function Todo(text){ //Error
+        const done = false;
+        return{
+            getText:    () => text,
+            isDone:     () => done,
+            check:      () => done = true
+        }
+    }
+    let todo = Todo("buy milk");
+    todo.check();
+    document.writeln(todo.isDone());
+    */
+
+
+    document.write("Q18 (6P):");
+
+
+    /*
+    function handle(callback){ //false
+        const result = [];
+        callback(result);
+        return result;
+    }
+    let it = [];
+    document.writeln(handle( () => it.push(1)).length ===1);
+    */
+
+    /*
+    function handle(callback){ //Error
+        const result = [];
+        callback(result);
+        return result;
+    }
+    document.writeln(handle(it.push(1)).length ===1);
+    */
+
+    /*
+    function handle(callback){ //Error
+        const result = [];
+        callback(result);
+        return result;
+    }
+    document.writeln(handle( () => it.push(1)).length ===1);
+    */
+
+    /*
+    function handle(callback){ //false
+        const result = [];
+        callback(result);
+        return result;
+    }
+    document.writeln(handle( () => [1]).length ===1);
+    */
+
+
+    /*
+    function handle(callback){ //true
+        const result = [];
+        callback(result);
+        return result;
+    }
+    let it = [];
+    document.writeln(handle( it => it.push(1)).length ===1);
+    */
+
+
+    /*
+    function handle(callback){ //false
+        const result = [];
+        callback([]);
+        return result;
+    }
+    document.writeln(handle( it => it.push(1)).length ===1);
+     */
+
+    /*
+    function handle(callback){ //true
+        const result = [];
+        callback(result);
+        callback(result);
+        return result;
+    }
+    document.writeln(handle( it => it.push(1)).length ===2);
+    */
+
+    /*
+    function handle(count, callback){ //true
+        const result = [];
+        for (let i = 0; i < count; i++) {
+            callback(result);
+        }
+        return result;
+    }
+    document.writeln(handle(3, it  => it.push(1)).length === 3);
+    */
+
+
+    /*
+    function handle(callback){ //true
+        const result = [];
+        return callback(result);
+    }
+    document.writeln(handle( () => [1]).length === 1);
+    */
+
+
+    /*
+    function handle(callback){ //true
+        return callback([]);
+    }
+    document.writeln(handle( it => { it.push(1); return it; }).length ===1);
+    */
+
+    /*
+    function handle(callback){ //true
+        const result = [];
+        callback(result);
+        return result;
+    }
+    document.writeln(handle( it => it.push(1)).length ===1);
+    */
+
+    /*
+    function handle(callback){ //Error
+        const result = [];
+        callback(result);
+        return result;
+    }
+    let it = [];
+    document.writeln(handle(it.push(1)).length ===1);
+     */
+
+
+    document.write("Q18a (5P):");
+
+    const failSafe = x => callback => y => callback(y);
+
+    const doError = x => { throw new Error() };
+    const errorCount = failSafe(1)(doError);
+
+    failSafe (false) (x => x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1
+
+
+
+</script>
+</body>
+</html>
