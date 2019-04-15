@@ -82,20 +82,6 @@
     document.writeln(me.getName() === "Sherlock");
 
 
-    const Person = name => { //true
-        let age = 0;
-        return {
-            getAge: ()          => age,
-            setAge: newAge      => age = newAge,
-            getName: ()         => name,
-            setName : newName   => name = newName
-        }
-    };
-
-    const me = Person("Myself");
-    me.setAge(50);
-    document.writeln(me.getAge() === 50);
-
 
 
     const Person = name => { //error
@@ -111,16 +97,65 @@
     const me = Person("Myself");
     me.name("***");
     document.writeln(me.getName() === "***");
-    */
+
+    const Person = name => { //true
+        let age = 0;
+        return {
+            getAge: ()          => age,
+            setAge: newAge      => age = newAge,
+            getName: ()         => name,
+            setName : newName   => name = newName
+        }
+    };
+
+    const me = Person("Myself");
+    me.setAge(50);
+    document.writeln(me.getAge() === 50);
+
 
     document.writeln("Q14a (5P): ")
+*/
+
+
+
+        xs1_ = [1, 2, 3, 4];
+        ys1_ = [1, 2, 3, 4];
+
+        document.writeln(typeof ys1_);
+
+        Array.prototype.eq = function(arr2){
+            let count = 0;
+            for (let i = 0; i < arr2.length; i++) {
+                console.log(this[i]);
+                console.log(arr2[i]);
+                if (this[i] === arr2[i]) {
+                    count++;
+                }
+            }
+            console.log(count);
+            return count === arr2.length;
+        }
+        document.writeln(xs1_.eq(ys1_));
+
+
+
+
     /*
-    function eq() {
+    const Empty = (() => { //true
+        function Empty() {}
+        return Empty;
+    }) ();
 
-    }
+    const empty = new Empty;
+    const also = new Empty;
 
-    xs1_.eq(ys1_) && ! xs2_.eq(ys2_) && xs3_.eq(ys3_) && ! xs3_.eq(ys4_) && ! xs4_.eq(ys3_)
+    Empty.prototype.answer = 42;
+
+    document.writeln(
+        empty.answer === 42 && also.answer ===42
+    );
     */
+
 
 </script>
 </body>

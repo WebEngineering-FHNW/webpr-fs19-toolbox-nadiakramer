@@ -6,14 +6,30 @@
 </head>
 <body>
 <script>
-    eployee = x => x;
-    bonusFormula = employee.revenue * 0.2;
 
-    const bonusCalculation = eval('');
+    /*
+    bonusFormula = "10000 * 0.2";
+
+    const bonusCalculation = employee => employee.bonus = eval(bonusFormula);
 
     const e = {revenue: 10000, bonus: null};
     bonusCalculation(e);
-    e.bonus === e.revenue * factor_;
+    document.writeln(e.bonus === e.revenue * 0.2);
+    */
+
+
+    bonusFormula = "10000 * 0.2";
+
+    document.writeln(bonusFormula);
+
+    const bonusCalculation = Function('employee', 'return employee.bonus =' + bonusFormula);
+
+    const e = {revenue: 10000, bonus: null};
+    bonusCalculation(e);
+    document.writeln(e.bonus === e.revenue * 0.2);
+
+
+
 </script>
 </body>
 </html>
