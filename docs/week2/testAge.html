@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age</title>
+</head>
+<body>
+<script>
+
+    // document.writeln("Test");
+    // const getAge = birthday => new Date().getFullYear() - birthday.getFullYear()-1;
+    // document.writeln(getAge(new Date(1997, 6, 7)));
+
+    function getAge(birthday){
+        return new Date().getFullYear() - (birthday + 1);
+    }
+
+    document.writeln(getAge(1997));
+
+
+</script>
+</body>
+</html>

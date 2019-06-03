@@ -7,7 +7,7 @@
 <body>
 <script>
 
-    document.writeln("Q13 (3P): ");
+   //document.writeln("Q13 (3P): ");
 
     /*
     function Empty() { } //true
@@ -49,7 +49,7 @@
     document.writeln(empty instanceof Empty);
     */
 
-    document.writeln("Q14 (2P): ");
+    //document.writeln("Q14 (2P): ");
 
     /*
     const Person = name => { //false
@@ -111,30 +111,27 @@
     const me = Person("Myself");
     me.setAge(50);
     document.writeln(me.getAge() === 50);
-
+*/
 
     document.writeln("Q14a (5P): ")
-*/
+
 
 
 
         xs1_ = [1, 2, 3, 4];
         ys1_ = [1, 2, 3, 4];
 
-        document.writeln(typeof ys1_);
-
         Array.prototype.eq = function(arr2){
             let count = 0;
             for (let i = 0; i < arr2.length; i++) {
-                console.log(this[i]);
-                console.log(arr2[i]);
                 if (this[i] === arr2[i]) {
                     count++;
                 }
             }
-            console.log(count);
-            return count === arr2.length;
+            return count === arr2.length && arr2.length === this.length;
         }
+
+
         document.writeln(xs1_.eq(ys1_));
 
 

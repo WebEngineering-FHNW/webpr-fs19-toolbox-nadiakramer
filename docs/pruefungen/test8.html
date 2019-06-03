@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    document.write("Q17 (5P):");
+   // document.write("Q17 (5P):");
 
     /*
     function Todo(text){ //Error
@@ -128,7 +128,7 @@
     */
 
 
-    document.write("Q18 (6P):");
+    //document.write("Q18 (6P):");
 
 
     /*
@@ -245,16 +245,37 @@
     let it = [];
     document.writeln(handle(it.push(1)).length ===1);
      */
+    //
+    // /**
+    //  * providing a scope and name for a test callback that fills the array
+    //  * of boolean checks
+    //  * @param {string} origin
+    //  * @param {function([boolean]): *} callback
+    //  */
+    // const test = (origin, callback) => {
+    //     const assert = Assert();      //    das ok anlegen
+    //     callback(assert);       //    das ok befüllen
+    //     report(origin, assert.getOk()); //    report mit name und ok aufrufen
+    // };
+    //
 
 
-    document.write("Q18a (5P):");
+   // document.write("Q18a (5P):");
 
-    const failSafe = x => callback => y => callback(y);
+   const failSafe = def => callback => x => {
+       try {
+           console.log(callback(x))
+           return callback(x)
+       }
+       catch (e) { return def; }
+   }
 
     const doError = x => { throw new Error() };
     const errorCount = failSafe(1)(doError);
 
-    failSafe (false) (x => x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1
+    document.writeln(failSafe (false) (x => x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1)
+
+
 
 
 

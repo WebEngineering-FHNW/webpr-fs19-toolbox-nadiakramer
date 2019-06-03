@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 12</title>
+</head>
+<body>
+<script>
+    //document.writeln("Q28m: 11P")
+
+    document.writeln("Q28a: 5P -->")
+
+    const str2chars = str => [...str];
+    const isAlpha = char => char.match(/[a-z]/);
+
+    function palindrome(x) {
+        const arr = x.toLowerCase()
+        const cleanArray = str2chars(arr).filter(function (i) {
+            return isAlpha(i)
+        })
+        const normal = cleanArray
+        const reverse = [...normal].reverse()
+
+        return  normal.toString() === reverse.toString()
+
+    }
+
+    document.writeln(palindrome("Madam, I'm Adam!")
+    && palindrome("Never odd or even.")
+    && !palindrome("Amore"))
+
+
+</script>
+</body>
+</html>

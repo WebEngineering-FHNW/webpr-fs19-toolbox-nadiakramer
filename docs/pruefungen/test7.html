@@ -201,6 +201,18 @@
 
     document.writeln("Q16a (5P)");
 
+    const mult = x =>  x * 5;
+    const add = x => x + 3;
+    const factor_ = 5;
+    const add_ = 3;
+
+
+    Function.prototype.then = function (func) {
+        return argument => func(this(argument))
+    };
+
+    document.writeln(add.then(mult).then(add) (1) === (1 + add_) * factor_ + add_)
+
 
 </script>
 </body>
