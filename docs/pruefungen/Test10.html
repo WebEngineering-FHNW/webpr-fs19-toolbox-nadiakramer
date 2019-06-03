@@ -328,9 +328,9 @@
 
     const NullSafe = x => {
         const isNullSafe = y => y && y.then;
-        const mayWrap = y => isNullSafe(y);
+        const mayWrap = y =>  NullSafe(y) && !isNullSafe(y) ;
         return {
-            then: fn =>mayWrap(fn(x))
+            then: fn => x && mayWrap(fn(x))
         }
     }
 
