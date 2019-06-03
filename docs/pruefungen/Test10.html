@@ -326,6 +326,20 @@
     //Q24a --> 5P
 
 
+    const NullSafe = x => {
+        const isNullSafe = y => y && y.then;
+        const mayWrap = y => isNullSafe(y);
+        return {
+            then: fn =>mayWrap(fn(x))
+        }
+    }
+
+    NullSafe(1).then(console.log);
+    NullSafe(null).then(console.log);
+    NullSafe(2).then(x => null).then(console.log)
+
+
+
 
 </script>
 </body>
